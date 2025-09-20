@@ -50,18 +50,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact Form Submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        const now = new Date();
+        const date = now.toLocaleDateString();
+        const nowTime = now.toLocaleTimeString();
+
+        emailjs.init("r38vhUksgR_HrAZPV");
+        
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Simple validation
             if (name && email && message) {
-                alert(`Thank you, ${name}! Your message has been received. (This is a frontend demo — no backend connected.)`);
-                contactForm.reset();
+                try {
+                    await emailjs.send("service_58xze63", "template_dzy18ui", {
+                        from_name: name,
+                        from_email: email,
+                        time: `${date} ${nowTime}`,
+                        message: message
+                    });
+                    
+                    alert(`Thank you, ${name}! Your message has been sent successfully.`);
+                    contactForm.reset();
+                } catch (error) {
+                    alert('Error sending message. Please try again.');
+                }
             } else {
                 alert('Please fill out all fields.');
             }
