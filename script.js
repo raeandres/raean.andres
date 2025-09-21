@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (carouselWrapper && prevBtn && nextBtn) {
         let currentIndex = 0;
         const slides = document.querySelectorAll('.project-card');
-        const totalSlides = slides.length -1;
+        const totalSlides =  window.innerWidth >= 768 ? slides.length -1 : slides.length;
+        // const totalSlides = window.innerWidth >= 768 ? 3 : 4;
         
         function updateCarousel() {
             const slideWidth = window.innerWidth >= 768 ? 50 : 100;
@@ -40,9 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             currentIndex = (currentIndex + 1) % totalSlides;
             updateCarousel();
         }, 5000);
-        
-        // Handle window resize
-        window.addEventListener('resize', updateCarousel);
         
         updateCarousel();
     }
