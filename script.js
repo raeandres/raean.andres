@@ -1,11 +1,50 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Carousel functionality
+    const carouselWrapper = document.getElementById('carouselWrapper');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    
+    if (carouselWrapper && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        const totalSlides = document.querySelectorAll('.project-card').length - 1;
+        
+        function updateCarousel() {
+            carouselWrapper.style.transform = `translateX(-${currentIndex * 50}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+        
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentIndex = parseInt(indicator.getAttribute('data-slide'));
+                updateCarousel();
+            });
+        });
+        
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+    }
     
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
 
-    // Check for saved user preference
     const savedMode = localStorage.getItem('darkMode');
     if (savedMode === 'enabled') {
         body.classList.add('dark-mode');
@@ -27,14 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            // Skip if it's a download link or external link
             if (this.getAttribute('href').startsWith('#') && this.getAttribute('href') !== '#') {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
-                    // Calculate offset for fixed navbar
                     const navbarHeight = document.getElementById('navbar').offsetHeight;
                     const targetPosition = targetElement.offsetTop - navbarHeight - 10;
                     
