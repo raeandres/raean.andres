@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalSlides = slides.length -1;
         
         function updateCarousel() {
-            carouselWrapper.style.transform = `translateX(-${currentIndex * 50}%)`;
+            const slideWidth = window.innerWidth >= 768 ? 50 : 100;
+            carouselWrapper.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
             
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentIndex);
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
             currentIndex = (currentIndex + 1) % totalSlides;
             updateCarousel();
         }, 5000);
+        
+        // Handle window resize
+        window.addEventListener('resize', updateCarousel);
         
         updateCarousel();
     }
