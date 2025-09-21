@@ -44,39 +44,66 @@
     <section id="projects" class="section projects">
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1: UOB TMRW SG -->
-                <div class="project-card">
-                    <div class="project-img-placeholder">UOB TMRW SG App</div>
-                    <h3>UOB TMRW SG</h3>
-                    <p>Led L3 Singapore engineering team for feature design, enhancements, and code governance. Optimized DevOps pipelines and facilitated multi-team production deployments for Singapore's digital banking app.</p>
-                    <div class="project-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.uob.mighty.app" target="_blank" rel="noopener">Android</a>
-                        <a href="https://apps.apple.com/sg/app/uob-tmrw/id1049286296" target="_blank" rel="noopener">iOS</a>
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <!-- Project 1: UOB TMRW SG -->
+                    <div class="carousel-slide">
+                        <div class="project-card">
+                            <div class="project-img-placeholder">UOB TMRW SG App</div>
+                            <h3>UOB TMRW SG</h3>
+                            <p>Led L3 Singapore engineering team for feature design, enhancements, and code governance. Optimized DevOps pipelines and facilitated multi-team production deployments for Singapore's digital banking app.</p>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.uob.mighty.app" target="_blank" rel="noopener">Android</a>
+                                <a href="https://apps.apple.com/sg/app/uob-tmrw/id1049286296" target="_blank" rel="noopener">iOS</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    
+                    <!-- Project 2: GCash App -->
+                    <div class="carousel-slide">
+                        <div class="project-card">
+                            <div class="project-img-placeholder">GCash App</div>
+                            <h3>GCash App</h3>
+                            <p>Implemented key features like 7-11 QR cash-in, facial recognition KYC, and customer referral. Revamped architecture for performance, achieving 1M+ monthly active users within 2 months.</p>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.globe.gcash.android" target="_blank" rel="noopener">Android</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: Manulife MOVE -->
+                    <div class="carousel-slide">
+                        <div class="project-card">
+                            <div class="project-img-placeholder">Manulife MOVE App</div>
+                            <h3>Manulife MOVE</h3>
+                            <p>Health app for Southeast Asia. Transitioned from internal MDM to public stores, saving 60% OPEX. Federated identity initiative increased MAUs from 500k to 800k.</p>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.manulife.move" target="_blank" rel="noopener">Android</a>
+                                <a href="https://apps.apple.com/us/app/manulifemove/id1031487052" target="_blank" rel="noopener">iOS</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4: Kirei HouseE -->
+                    <div class="carousel-slide">
+                        <div class="project-card">
+                            <div class="project-img-placeholder">Kirei House PH</div>
+                            <h3>Kirei House PH</h3>
+                            <p>Vacation rental website. Showcasing rental property booking schedules, property location, facilities, amenities, testimonials and contac info.</p>
+                            <div class="project-links">
+                                <a href="https://kireihouseph.vercel.app/" target="_blank" rel="noopener">Web</a>
+                            </div>
+                        </div>
+                    </div>
                 
-                <!-- Project 2: GCash App -->
-                <div class="project-card">
-                    <div class="project-img-placeholder">GCash App</div>
-                    <h3>GCash App</h3>
-                    <p>Implemented key features like 7-11 QR cash-in, facial recognition KYC, and customer referral. Revamped architecture for performance, achieving 1M+ monthly active users within 2 months.</p>
-                    <div class="project-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.globe.gcash.android" target="_blank" rel="noopener">Android</a>
-                    </div>
-                </div>
                 
-                <!-- Project 3: Manulife MOVE -->
-                <div class="project-card">
-                    <div class="project-img-placeholder">Manulife MOVE App</div>
-                    <h3>Manulife MOVE</h3>
-                    <p>Health app for Southeast Asia. Transitioned from internal MDM to public stores, saving 60% OPEX. Federated identity initiative increased MAUs from 500k to 800k.</p>
-                    <div class="project-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.manulife.move" target="_blank" rel="noopener">Android</a>
-                        <a href="https://apps.apple.com/us/app/manulifemove/id1031487052" target="_blank" rel="noopener">iOS</a>
-                    </div>
-                </div>
             </div>
+            <button class="carousel-nav carousel-prev" id="prevBtn">‹</button>
+                <button class="carousel-nav carousel-next" id="nextBtn">›</button>
+                
+                <div class="carousel-controls" id="indicators">
+                    <span class="carousel-indicator" data-slide="0"></span>
+                    <span class="carousel-indicator" data-slide="1"></span>
+                </div>
         </div>
     </section>
 
