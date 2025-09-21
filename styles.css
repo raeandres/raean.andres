@@ -524,7 +524,7 @@ footer {
     width: 100%;
 }
 .carousel-slide {
-    min-width: 40%;
+    min-width: 50%;
     width: 50%;
     flex-shrink: 0;
     padding: 0 1rem;
