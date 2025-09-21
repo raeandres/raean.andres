@@ -1,4 +1,3 @@
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Carousel functionality
     const carouselWrapper = document.getElementById('carouselWrapper');
@@ -8,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (carouselWrapper && prevBtn && nextBtn) {
         let currentIndex = 0;
-        const totalSlides = document.querySelectorAll('.project-card').length - 1;
+        const slides = document.querySelectorAll('.project-card');
+        const totalSlides = slides.length -1;
         
         function updateCarousel() {
             carouselWrapper.style.transform = `translateX(-${currentIndex * 50}%)`;
@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
             currentIndex = (currentIndex + 1) % totalSlides;
             updateCarousel();
         }, 5000);
+        
+        updateCarousel();
     }
     
     // Dark Mode Toggle
