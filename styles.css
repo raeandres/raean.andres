@@ -244,10 +244,12 @@ a:hover {
 
 .dark-mode .btn-download {
     background-color: #42a5f5;
+    color: white; /* Explicitly set text color for dark mode */
 }
 
 .dark-mode .btn-download:hover {
     background-color: #1e88e5;
+    color: white; /* Ensure text color remains white on hover in dark mode */
 }
 
 /* Projects Section */
