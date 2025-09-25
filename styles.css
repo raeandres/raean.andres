@@ -206,9 +206,10 @@ a:hover {
 
 .subtitle {
     font-size: 1.1rem;
-    color: #666;
+    color: #5d5c5cff;
     margin-bottom: 1.5rem;
     font-weight: 500;
+    font-size: medium;
 }
 
 .dark-mode .subtitle {
@@ -219,7 +220,17 @@ a:hover {
     margin-bottom: 2rem;
     line-height: 1.7;
     color: #555;
+    font-size: small;
 }
+@media (max-width: 768px) {
+    .summary {
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        color: #555;
+        font-size: medium;
+    } 
+}
+
 
 .dark-mode .summary {
     color: #bbb;
